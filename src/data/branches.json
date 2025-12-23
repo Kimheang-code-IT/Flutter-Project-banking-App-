@@ -1,0 +1,58 @@
+[
+  {
+    "id": "PP001",
+    "name": "Phnom Penh Central",
+    "location": "Phnom Penh",
+    "totalCustomers": 5,
+    "totalLoans": 8,
+    "totalDeposits": 625000,
+    "revenue": 125000,
+    "status": "Active",
+    "openedDate": "2018-01-15"
+  },
+  {
+    "id": "PP002",
+    "name": "Phnom Penh Riverside",
+    "location": "Phnom Penh",
+    "totalCustomers": 2,
+    "totalLoans": 3,
+    "totalDeposits": 330000,
+    "revenue": 75000,
+    "status": "Active",
+    "openedDate": "2019-03-20"
+  },
+  {
+    "id": "SR001",
+    "name": "Siem Reap Main",
+    "location": "Siem Reap",
+    "totalCustomers": 4,
+    "totalLoans": 5,
+    "totalDeposits": 345500,
+    "revenue": 95000,
+    "status": "Active",
+    "openedDate": "2019-06-10"
+  },
+  {
+    "id": "BT001",
+    "name": "Battambang Branch",
+    "location": "Battambang",
+    "totalCustomers": 3,
+    "totalLoans": 3,
+    "totalDeposits": 26500,
+    "revenue": 45000,
+    "status": "Active",
+    "openedDate": "2020-02-14"
+  },
+  {
+    "id": "KC001",
+    "name": "Kampong Cham Branch",
+    "location": "Kampong Cham",
+    "totalCustomers": 2,
+    "totalLoans": 1,
+    "totalDeposits": 31200,
+    "revenue": 25000,
+    "status": "Active",
+    "openedDate": "2021-05-08"
+  }
+]
+

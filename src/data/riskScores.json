@@ -1,0 +1,108 @@
+[
+  {
+    "customerId": "C001",
+    "riskScore": 25,
+    "riskLevel": "Low",
+    "factors": ["Good credit history", "No late payments", "Stable employment"],
+    "lastUpdated": "2024-02-20"
+  },
+  {
+    "customerId": "C002",
+    "riskScore": 55,
+    "riskLevel": "Medium",
+    "factors": ["Fair credit history", "2 late payments", "Self-employed"],
+    "lastUpdated": "2024-02-20"
+  },
+  {
+    "customerId": "C003",
+    "riskScore": 15,
+    "riskLevel": "Low",
+    "factors": ["Excellent credit history", "No late payments", "High income"],
+    "lastUpdated": "2024-02-20"
+  },
+  {
+    "customerId": "C004",
+    "riskScore": 35,
+    "riskLevel": "Low",
+    "factors": ["Good credit history", "1 late payment", "Stable employment"],
+    "lastUpdated": "2024-02-20"
+  },
+  {
+    "customerId": "C005",
+    "riskScore": 10,
+    "riskLevel": "Low",
+    "factors": ["Excellent credit history", "No late payments", "Business owner", "High income"],
+    "lastUpdated": "2024-02-20"
+  },
+  {
+    "customerId": "C006",
+    "riskScore": 75,
+    "riskLevel": "High",
+    "factors": ["Fair credit history", "3 late payments", "Low income"],
+    "lastUpdated": "2024-02-20"
+  },
+  {
+    "customerId": "C007",
+    "riskScore": 30,
+    "riskLevel": "Low",
+    "factors": ["Good credit history", "1 late payment", "Stable employment"],
+    "lastUpdated": "2024-02-20"
+  },
+  {
+    "customerId": "C008",
+    "riskScore": 40,
+    "riskLevel": "Medium",
+    "factors": ["Good credit history", "No late payments", "Self-employed"],
+    "lastUpdated": "2024-02-20"
+  },
+  {
+    "customerId": "C009",
+    "riskScore": 90,
+    "riskLevel": "High",
+    "factors": ["Poor credit history", "5 late payments", "Unemployed", "Defaulted loan"],
+    "lastUpdated": "2024-02-20"
+  },
+  {
+    "customerId": "C010",
+    "riskScore": 50,
+    "riskLevel": "Medium",
+    "factors": ["Fair credit history", "2 late payments", "Stable employment"],
+    "lastUpdated": "2024-02-20"
+  },
+  {
+    "customerId": "C011",
+    "riskScore": 12,
+    "riskLevel": "Low",
+    "factors": ["Excellent credit history", "No late payments", "Business owner", "Very high income"],
+    "lastUpdated": "2024-02-20"
+  },
+  {
+    "customerId": "C012",
+    "riskScore": 32,
+    "riskLevel": "Low",
+    "factors": ["Good credit history", "1 late payment", "Stable employment"],
+    "lastUpdated": "2024-02-20"
+  },
+  {
+    "customerId": "C013",
+    "riskScore": 8,
+    "riskLevel": "Low",
+    "factors": ["Excellent credit history", "No late payments", "Business owner", "Very high income"],
+    "lastUpdated": "2024-02-20"
+  },
+  {
+    "customerId": "C014",
+    "riskScore": 60,
+    "riskLevel": "Medium",
+    "factors": ["Fair credit history", "2 late payments", "Self-employed", "Moderate income"],
+    "lastUpdated": "2024-02-20"
+  },
+  {
+    "customerId": "C015",
+    "riskScore": 28,
+    "riskLevel": "Low",
+    "factors": ["Good credit history", "No late payments", "Stable employment"],
+    "lastUpdated": "2024-02-20"
+  }
+]
+

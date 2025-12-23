@@ -1,0 +1,138 @@
+[
+  {
+    "id": "D001",
+    "customerId": "C001",
+    "depositType": "Savings",
+    "balance": 25000,
+    "interestEarned": 1250,
+    "openDate": "2020-03-15",
+    "branch": "PP001"
+  },
+  {
+    "id": "D002",
+    "customerId": "C002",
+    "depositType": "Checking",
+    "balance": 8500,
+    "interestEarned": 85,
+    "openDate": "2021-07-22",
+    "branch": "SR001"
+  },
+  {
+    "id": "D003",
+    "customerId": "C003",
+    "depositType": "Fixed",
+    "balance": 150000,
+    "interestEarned": 12000,
+    "openDate": "2019-11-08",
+    "branch": "PP001"
+  },
+  {
+    "id": "D004",
+    "customerId": "C004",
+    "depositType": "Savings",
+    "balance": 18000,
+    "interestEarned": 900,
+    "openDate": "2022-01-10",
+    "branch": "BT001"
+  },
+  {
+    "id": "D005",
+    "customerId": "C005",
+    "depositType": "Fixed",
+    "balance": 300000,
+    "interestEarned": 24000,
+    "openDate": "2018-05-20",
+    "branch": "PP002"
+  },
+  {
+    "id": "D006",
+    "customerId": "C006",
+    "depositType": "Checking",
+    "balance": 3200,
+    "interestEarned": 32,
+    "openDate": "2023-02-14",
+    "branch": "KC001"
+  },
+  {
+    "id": "D007",
+    "customerId": "C007",
+    "depositType": "Savings",
+    "balance": 42000,
+    "interestEarned": 2100,
+    "openDate": "2020-09-30",
+    "branch": "SR001"
+  },
+  {
+    "id": "D008",
+    "customerId": "C008",
+    "depositType": "Fixed",
+    "balance": 95000,
+    "interestEarned": 7600,
+    "openDate": "2021-12-05",
+    "branch": "PP001"
+  },
+  {
+    "id": "D009",
+    "customerId": "C009",
+    "depositType": "Checking",
+    "balance": 1500,
+    "interestEarned": 15,
+    "openDate": "2022-06-18",
+    "branch": "BT001"
+  },
+  {
+    "id": "D010",
+    "customerId": "C010",
+    "depositType": "Savings",
+    "balance": 12000,
+    "interestEarned": 600,
+    "openDate": "2023-04-12",
+    "branch": "PP002"
+  },
+  {
+    "id": "D011",
+    "customerId": "C011",
+    "depositType": "Fixed",
+    "balance": 200000,
+    "interestEarned": 16000,
+    "openDate": "2019-08-25",
+    "branch": "SR001"
+  },
+  {
+    "id": "D012",
+    "customerId": "C012",
+    "depositType": "Savings",
+    "balance": 28000,
+    "interestEarned": 1400,
+    "openDate": "2021-03-09",
+    "branch": "KC001"
+  },
+  {
+    "id": "D013",
+    "customerId": "C013",
+    "depositType": "Fixed",
+    "balance": 450000,
+    "interestEarned": 36000,
+    "openDate": "2018-12-03",
+    "branch": "PP001"
+  },
+  {
+    "id": "D014",
+    "customerId": "C014",
+    "depositType": "Checking",
+    "balance": 5500,
+    "interestEarned": 55,
+    "openDate": "2022-11-20",
+    "branch": "BT001"
+  },
+  {
+    "id": "D015",
+    "customerId": "C015",
+    "depositType": "Savings",
+    "balance": 35000,
+    "interestEarned": 1750,
+    "openDate": "2020-07-14",
+    "branch": "SR001"
+  }
+]
+
