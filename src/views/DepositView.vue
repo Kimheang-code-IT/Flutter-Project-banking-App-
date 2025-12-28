@@ -4,7 +4,7 @@
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 mb-2">
       <!-- Total Deposits Card -->
       <BankingCard
-        title="Total Deposits"
+        :title="t('totalDeposits')"
         :value="totalDeposits"
         format="currency"
         icon-bg-class="bg-blue-100"
@@ -13,7 +13,7 @@
       
       <!-- Total Interest Earned Card -->
       <BankingCard
-        title="Total Interest Earned"
+        :title="t('totalInterestEarned')"
         :value="totalInterestEarned"
         format="currency"
         icon-bg-class="bg-green-100"
@@ -22,7 +22,7 @@
       
       <!-- Average Deposit Card -->
       <BankingCard
-        title="Average Deposit"
+        :title="t('averageDeposit')"
         :value="averageDeposit"
         format="currency"
         icon-bg-class="bg-purple-100"
@@ -31,7 +31,7 @@
       
       <!-- High Value Customers Card -->
       <BankingCard
-        title="High Value Customers"
+        :title="t('highValueCustomers')"
         :value="highValueCustomersCount"
         format="number"
         icon-bg-class="bg-orange-100"

@@ -4,7 +4,7 @@
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 mb-2">
       <!-- Total Branches Card -->
       <BankingCard
-        title="Total Branches"
+        :title="t('totalBranches')"
         :value="totalBranches"
         format="number"
         icon-bg-class="bg-blue-100"
@@ -13,7 +13,7 @@
       
       <!-- Active Branches Card -->
       <BankingCard
-        title="Active Branches"
+        :title="t('activeBranches')"
         :value="activeBranches"
         format="number"
         icon-bg-class="bg-green-100"
@@ -22,7 +22,7 @@
       
       <!-- Total Revenue Card -->
       <BankingCard
-        title="Total Revenue"
+        :title="t('totalRevenue')"
         :value="totalRevenue"
         format="currency"
         icon-bg-class="bg-purple-100"
@@ -31,7 +31,7 @@
       
       <!-- Average Profit Card -->
       <BankingCard
-        title="Average Profit"
+        :title="t('averageProfit')"
         :value="averageProfit"
         format="currency"
         icon-bg-class="bg-orange-100"

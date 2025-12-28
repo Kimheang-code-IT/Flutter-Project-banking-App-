@@ -62,9 +62,14 @@ const isDarkMode = ref(localStorage.getItem('darkMode') === 'true')
 const changeLanguage = (lang) => {
   currentLanguage.value = lang
   setCurrentLanguage(lang)
+  // Update HTML lang attribute for font switching
+  document.documentElement.setAttribute('lang', lang)
   // Trigger reactivity update
   window.dispatchEvent(new Event('languagechange'))
 }
+
+// Initialize language attribute on mount
+document.documentElement.setAttribute('lang', currentLanguage.value)
 
 // Function to toggle dark mode
 const toggleDarkMode = () => {

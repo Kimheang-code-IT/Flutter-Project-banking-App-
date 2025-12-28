@@ -3,19 +3,19 @@
     <!-- Summary Cards -->
     <div class="grid grid-cols-1 md:grid-cols-4 gap-2 mb-2">
       <!-- Total Customers Card -->
-      <BankingCard title="Total Customers" :value="totalCustomers" format="number" icon-bg-class="bg-blue-100"
+      <BankingCard :title="t('totalCustomers')" :value="totalCustomers" format="number" icon-bg-class="bg-blue-100"
         :icon="customerIcon" />
 
       <!-- Active Customers Card -->
-      <BankingCard title="Active Customers" :value="activeCustomers" format="number" icon-bg-class="bg-green-100"
+      <BankingCard :title="t('activeCustomers')" :value="activeCustomers" format="number" icon-bg-class="bg-green-100"
         :icon="activeIcon" />
 
       <!-- Inactive Customers Card -->
-      <BankingCard title="Inactive Customers" :value="inactiveCustomers" format="number" icon-bg-class="bg-red-100"
+      <BankingCard :title="t('inactiveCustomers')" :value="inactiveCustomers" format="number" icon-bg-class="bg-red-100"
         :icon="inactiveIcon" />
 
       <!-- New This Month Card -->
-      <BankingCard title="New This Month" :value="newThisMonth" format="number" icon-bg-class="bg-purple-100"
+      <BankingCard :title="t('newThisMonth')" :value="newThisMonth" format="number" icon-bg-class="bg-purple-100"
         :icon="newIcon" />
     </div>
 
@@ -23,7 +23,7 @@
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-2 mb-2">
       <!-- Age Group Bar Chart -->
       <div class="bg-white dark:bg-gray-800 rounded-sm shadow p-3 transition-colors duration-300">
-        <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-2">Customer Age Groups</h3>
+        <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-2">{{ t('customerAgeGroups') }}</h3>
         <div class="h-[300px]">
           <Bar :data="ageGroupChartData" :options="ageGroupChartOptions" />
         </div>
@@ -31,7 +31,7 @@
 
       <!-- Customer Growth Line Chart -->
       <div class="bg-white dark:bg-gray-800 rounded-sm shadow p-3 transition-colors duration-300">
-        <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-2">Customer Growth</h3>
+        <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-2">{{ t('customerGrowth') }}</h3>
         <div class="h-[300px]">
           <Line :data="growthChartData" :options="growthChartOptions" />
         </div>
@@ -42,7 +42,7 @@
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-2 mb-2">
       <!-- Account Type Pie Chart -->
       <div class="bg-white dark:bg-gray-800 rounded-sm shadow p-3 transition-colors duration-300">
-        <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-2">Account Type Distribution</h3>
+        <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-2">{{ t('accountTypeDistribution') }}</h3>
         <div class="h-[250px]">
           <Pie :data="accountTypeChartData" :options="accountTypeChartOptions" />
         </div>
@@ -50,7 +50,7 @@
 
       <!-- Location/Branch Distribution -->
       <div class="bg-white dark:bg-gray-800 rounded-sm shadow p-3 transition-colors duration-300">
-        <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-2">Location Distribution</h3>
+        <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-2">{{ t('locationDistribution') }}</h3>
         <div class="h-[250px]">
           <Bar :data="locationChartData" :options="locationChartOptions" />
         </div>
@@ -67,17 +67,17 @@
                 d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
             </svg>
           </div>
-          <input v-model="searchQuery" type="text" placeholder="Search customers..."
+          <input v-model="searchQuery" type="text" :placeholder="t('searchCustomers')"
             class="w-full pl-10 pr-4 py-2 border border-gray-300 dark:border-gray-600 rounded-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-200" />
         </div>
         <div class="flex items-center gap-4">
           <div class="relative">
             <select v-model="selectedAccountType"
               class="appearance-none bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-sm px-4 py-2 pr-8 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 dark:text-gray-200">
-              <option value="">All Account Types</option>
-              <option value="Savings">Savings</option>
-              <option value="Checking">Checking</option>
-              <option value="Business">Business</option>
+              <option value="">{{ t('allAccountTypes') }}</option>
+              <option value="Savings">{{ t('savings') }}</option>
+              <option value="Checking">{{ t('checking') }}</option>
+              <option value="Business">{{ t('business') }}</option>
             </select>
             <div class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
               <svg class="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -88,7 +88,7 @@
           <div class="relative">
             <select v-model="selectedBranch"
               class="appearance-none bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-sm px-4 py-2 pr-8 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 dark:text-gray-200">
-              <option value="">All Branches</option>
+              <option value="">{{ t('allBranches') }}</option>
               <option v-for="branch in branches" :key="branch.id" :value="branch.id">{{ branch.name }}</option>
             </select>
             <div class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
@@ -104,7 +104,7 @@
     <!-- Customers Table -->
     <div class="bg-white dark:bg-gray-800 rounded-sm shadow transition-colors duration-300">
       <div class="px-4 py-3 border-b border-gray-200 dark:border-gray-700">
-        <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200">Customers</h3>
+        <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200">{{ t('customers') }}</h3>
       </div>
       <div class="max-h-[500px] overflow-y-auto">
         <table class="w-full">
@@ -112,31 +112,31 @@
             <tr>
               <th
                 class="px-4 py-3 text-left text-xs font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider border-b border-gray-200 dark:border-gray-700">
-                No</th>
+                {{ t('number') }}</th>
               <th
                 class="px-4 py-3 text-left text-xs font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider border-b border-gray-200 dark:border-gray-700">
-                Name</th>
+                {{ t('name') }}</th>
               <th
                 class="px-4 py-3 text-left text-xs font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider border-b border-gray-200 dark:border-gray-700">
-                Age</th>
+                {{ t('age') }}</th>
               <th
                 class="px-4 py-3 text-left text-xs font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider border-b border-gray-200 dark:border-gray-700">
-                Location</th>
+                {{ t('location') }}</th>
               <th
                 class="px-4 py-3 text-left text-xs font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider border-b border-gray-200 dark:border-gray-700">
-                Branch</th>
+                {{ t('branch') }}</th>
               <th
                 class="px-4 py-3 text-left text-xs font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider border-b border-gray-200 dark:border-gray-700">
-                Account Type</th>
+                {{ t('accountType') }}</th>
               <th
                 class="px-4 py-3 text-left text-xs font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider border-b border-gray-200 dark:border-gray-700">
-                Join Date</th>
+                {{ t('joinDate') }}</th>
               <th
                 class="px-4 py-3 text-left text-xs font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider border-b border-gray-200 dark:border-gray-700">
-                Status</th>
+                {{ t('status') }}</th>
               <th
                 class="px-4 py-3 text-left text-xs font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider border-b border-gray-200 dark:border-gray-700">
-                Actions</th>
+                {{ t('actions') }}</th>
             </tr>
           </thead>
           <tbody class="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
@@ -175,7 +175,7 @@
               <td class="px-4 py-3 whitespace-nowrap text-sm font-medium">
                 <button @click="viewCustomerDetails(customer)"
                   class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300">
-                  View
+                  {{ t('view') }}
                 </button>
               </td>
             </tr>
@@ -191,7 +191,7 @@
           class="absolute right-0 top-0 h-full w-full max-w-md bg-white dark:bg-gray-800 shadow-xl overflow-y-auto transition-colors duration-300">
           <div
             class="sticky top-0 bg-white dark:bg-gray-800 text-black dark:text-gray-200 px-6 py-5 flex items-center justify-between z-10 border-b border-gray-200 dark:border-gray-700">
-            <h2 class="text-xl font-bold">Customer Details</h2>
+            <h2 class="text-xl font-bold">{{ t('customerDetails') }}</h2>
             <button @click="closeDetailsDrawer"
               class="text-black dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-sm p-2 transition-colors">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
@@ -206,35 +206,35 @@
               <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-4">{{ selectedCustomer.name }}</h3>
               <div class="space-y-3">
                 <div>
-                  <p class="text-sm text-gray-600 dark:text-gray-400">Age</p>
+                  <p class="text-sm text-gray-600 dark:text-gray-400">{{ t('age') }}</p>
                   <p class="text-base font-medium text-gray-800 dark:text-gray-200">{{ selectedCustomer.age }}</p>
                 </div>
                 <div>
-                  <p class="text-sm text-gray-600 dark:text-gray-400">Income</p>
+                  <p class="text-sm text-gray-600 dark:text-gray-400">{{ t('income') }}</p>
                   <p class="text-base font-medium text-gray-800 dark:text-gray-200">${{
                     selectedCustomer.income.toLocaleString() }}</p>
                 </div>
                 <div>
-                  <p class="text-sm text-gray-600 dark:text-gray-400">Location</p>
+                  <p class="text-sm text-gray-600 dark:text-gray-400">{{ t('location') }}</p>
                   <p class="text-base font-medium text-gray-800 dark:text-gray-200">{{ selectedCustomer.location }}</p>
                 </div>
                 <div>
-                  <p class="text-sm text-gray-600 dark:text-gray-400">Branch</p>
+                  <p class="text-sm text-gray-600 dark:text-gray-400">{{ t('branch') }}</p>
                   <p class="text-base font-medium text-gray-800 dark:text-gray-200">{{
                     getBranchName(selectedCustomer.branch) }}</p>
                 </div>
                 <div>
-                  <p class="text-sm text-gray-600 dark:text-gray-400">Account Type</p>
+                  <p class="text-sm text-gray-600 dark:text-gray-400">{{ t('accountType') }}</p>
                   <p class="text-base font-medium text-gray-800 dark:text-gray-200">{{ selectedCustomer.accountType }}
                   </p>
                 </div>
                 <div>
-                  <p class="text-sm text-gray-600 dark:text-gray-400">Join Date</p>
+                  <p class="text-sm text-gray-600 dark:text-gray-400">{{ t('joinDate') }}</p>
                   <p class="text-base font-medium text-gray-800 dark:text-gray-200">{{ new
                     Date(selectedCustomer.joinDate).toLocaleDateString() }}</p>
                 </div>
                 <div>
-                  <p class="text-sm text-gray-600 dark:text-gray-400">Status</p>
+                  <p class="text-sm text-gray-600 dark:text-gray-400">{{ t('status') }}</p>
                   <span :class="[
                     'px-2 py-1 text-xs font-medium rounded-sm inline-block',
                     selectedCustomer.status === 'Active' ? 'bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-400' :
@@ -370,7 +370,7 @@ const growthChartData = computed(() => ({
   labels: customerGrowth.value.map(g => new Date(g.date).toLocaleDateString('en-US', { month: 'short', year: 'numeric' })),
   datasets: [
     {
-      label: 'Total Customers',
+      label: t('totalCustomers'),
       data: customerGrowth.value.map(g => g.count),
       borderColor: 'rgb(16, 185, 129)',
       backgroundColor: 'rgba(16, 185, 129, 0.1)',

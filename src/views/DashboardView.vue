@@ -6,7 +6,7 @@
       <div class="bg-white dark:bg-gray-800 rounded-sm shadow p-3 transition-colors duration-300">
         <div class="flex items-center justify-between">
           <div>
-            <h3 class="text-gray-600 dark:text-gray-400 text-sm font-medium mb-2">Total Customers</h3>
+            <h3 class="text-gray-600 dark:text-gray-400 text-sm font-medium mb-2">{{ t('totalCustomers') }}</h3>
             <p class="text-3xl font-bold text-gray-800 dark:text-gray-200">{{ totalCustomers.toLocaleString() }}</p>
           </div>
           <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
@@ -23,7 +23,7 @@
       <div class="bg-white dark:bg-gray-800 rounded-sm shadow p-3 transition-colors duration-300">
         <div class="flex items-center justify-between">
           <div>
-            <h3 class="text-gray-600 dark:text-gray-400 text-sm font-medium mb-2">Total Deposits</h3>
+            <h3 class="text-gray-600 dark:text-gray-400 text-sm font-medium mb-2">{{ t('totalDeposits') }}</h3>
             <p class="text-3xl font-bold text-gray-800 dark:text-gray-200">${{ totalDeposits.toLocaleString('en-US', {
               minimumFractionDigits: 2, maximumFractionDigits: 2
             }) }}</p>
@@ -42,7 +42,7 @@
       <div class="bg-white dark:bg-gray-800 rounded-sm shadow p-3 transition-colors duration-300">
         <div class="flex items-center justify-between">
           <div>
-            <h3 class="text-gray-600 dark:text-gray-400 text-sm font-medium mb-2">Total Loans</h3>
+            <h3 class="text-gray-600 dark:text-gray-400 text-sm font-medium mb-2">{{ t('totalLoans') }}</h3>
             <p class="text-3xl font-bold text-gray-800 dark:text-gray-200">${{ totalLoans.toLocaleString('en-US', {
               minimumFractionDigits: 2, maximumFractionDigits: 2
             }) }}</p>
@@ -61,7 +61,7 @@
       <div class="bg-white dark:bg-gray-800 rounded-sm shadow p-3 transition-colors duration-300">
         <div class="flex items-center justify-between">
           <div>
-            <h3 class="text-gray-600 dark:text-gray-400 text-sm font-medium mb-2">Default Rate</h3>
+            <h3 class="text-gray-600 dark:text-gray-400 text-sm font-medium mb-2">{{ t('defaultRate') }}</h3>
             <p class="text-3xl font-bold text-gray-800 dark:text-gray-200">{{ defaultRate.toFixed(2) }}%</p>
           </div>
           <div class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center">
@@ -79,7 +79,7 @@
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-2">
       <!-- Left: Line Chart - Deposits vs Loans -->
       <div class="lg:col-span-2 bg-white dark:bg-gray-800 rounded-sm shadow p-3 transition-colors duration-300">
-        <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-2">Deposits vs Loans Over Time</h3>
+        <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-2">{{ t('depositsVsLoans') }}</h3>
         <div class="h-[450px]">
           <Line :data="lineChartData" :options="lineChartOptions" />
         </div>
@@ -89,7 +89,7 @@
       <div class="lg:col-span-1 space-y-3">
         <!-- Customer Types Pie Chart -->
         <div class="bg-white dark:bg-gray-800 rounded-sm shadow p-3 transition-colors duration-300">
-          <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-2">Customer Types</h3>
+          <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-2">{{ t('customerTypes') }}</h3>
           <div class="h-[195px]">
             <Pie :data="pieChartData" :options="pieChartOptions" />
           </div>
@@ -97,7 +97,7 @@
 
         <!-- Monthly Transactions -->
         <div class="bg-white dark:bg-gray-800 rounded-sm shadow p-3 transition-colors duration-300">
-          <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-2">Monthly Transactions</h3>
+          <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-2">{{ t('monthlyTransactions') }}</h3>
           <div class="h-[195px]">
             <Line :data="transactionChartData" :options="transactionChartOptions" />
           </div>
@@ -215,7 +215,7 @@ const lineChartData = ref({
   labels: monthLabels,
   datasets: [
     {
-      label: 'Deposits',
+      label: t('totalDeposits'),
       data: monthLabels.map(month => monthlyData[month].deposits),
       borderColor: 'rgb(16, 185, 129)',
       backgroundColor: 'rgba(16, 185, 129, 0.1)',
@@ -223,7 +223,7 @@ const lineChartData = ref({
       fill: true
     },
     {
-      label: 'Loans',
+      label: t('totalLoans'),
       data: monthLabels.map(month => monthlyData[month].loans),
       borderColor: 'rgb(59, 130, 246)',
       backgroundColor: 'rgba(59, 130, 246, 0.1)',
@@ -282,7 +282,7 @@ const transactionChartData = computed(() => ({
   labels: monthlyTransactions.value.map(m => m.month),
   datasets: [
     {
-      label: 'Transactions',
+      label: t('transactions'),
       data: monthlyTransactions.value.map(m => m.total),
       borderColor: 'rgb(249, 115, 22)',
       backgroundColor: 'rgba(249, 115, 22, 0.1)',

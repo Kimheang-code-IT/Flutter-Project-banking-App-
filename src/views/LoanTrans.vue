@@ -3,19 +3,19 @@
     <!-- Summary Cards -->
     <div class="grid grid-cols-1 md:grid-cols-4 gap-2 mb-2">
       <!-- Total Loans Card -->
-      <BankingCard title="Total Loans" :value="totalLoans" format="currency" icon-bg-class="bg-blue-100"
+      <BankingCard :title="t('totalLoans')" :value="totalLoans" format="currency" icon-bg-class="bg-blue-100"
         :icon="loanIcon" />
 
       <!-- Loan Approval Rate Card -->
-      <BankingCard title="Approval Rate" :value="loanApprovalRate" format="percentage" icon-bg-class="bg-green-100"
+      <BankingCard :title="t('approvalRate')" :value="loanApprovalRate" format="percentage" icon-bg-class="bg-green-100"
         :icon="approvalIcon" />
 
       <!-- Average Loan Size Card -->
-      <BankingCard title="Average Loan Size" :value="averageLoanSize" format="currency" icon-bg-class="bg-purple-100"
+      <BankingCard :title="t('averageLoanSize')" :value="averageLoanSize" format="currency" icon-bg-class="bg-purple-100"
         :icon="averageIcon" />
 
       <!-- Total Transactions Card -->
-      <BankingCard title="Total Transactions" :value="totalTransactions" format="number" icon-bg-class="bg-orange-100"
+      <BankingCard :title="t('totalTransactions')" :value="totalTransactions" format="number" icon-bg-class="bg-orange-100"
         :icon="transactionIcon" />
     </div>
 
@@ -23,7 +23,7 @@
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-2 mb-2">
       <!-- Loan Status Pie Chart -->
       <div class="bg-white dark:bg-gray-800 rounded-sm shadow p-3 transition-colors duration-300">
-        <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-2">Loan Status</h3>
+        <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-2">{{ t('loanStatus') }}</h3>
         <div class="h-[300px]">
           <Pie :data="loanStatusChartData" :options="loanStatusChartOptions" />
         </div>
@@ -31,7 +31,7 @@
 
       <!-- Loan Type Distribution -->
       <div class="bg-white dark:bg-gray-800 rounded-sm shadow p-3 transition-colors duration-300">
-        <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-2">Loan Type Distribution</h3>
+        <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-2">{{ t('loanTypeDistribution') }}</h3>
         <div class="h-[300px]">
           <Pie :data="loanTypeChartData" :options="loanTypeChartOptions" />
         </div>
@@ -40,7 +40,7 @@
 
     <!-- Monthly Transaction Volume -->
     <div class="bg-white dark:bg-gray-800 rounded-sm shadow p-3 transition-colors duration-300 mb-2">
-      <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-2">Monthly Transaction Volume</h3>
+      <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-2">{{ t('monthlyTransactionVolume') }}</h3>
       <div class="h-[300px]">
         <Line :data="transactionVolumeChartData" :options="transactionVolumeChartOptions" />
       </div>
@@ -56,7 +56,7 @@
               ? 'border-blue-600 text-blue-600 dark:text-blue-400'
               : 'border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:border-gray-300'
           ]">
-            Loans
+            {{ t('loans') }}
           </button>
           <button @click="activeTab = 'transactions'" :class="[
             'px-6 py-3 text-sm font-medium border-b-2 transition-colors',
@@ -64,7 +64,7 @@
               ? 'border-blue-600 text-blue-600 dark:text-blue-400'
               : 'border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:border-gray-300'
           ]">
-            Transactions
+            {{ t('transactions') }}
           </button>
         </nav>
       </div>
@@ -80,16 +80,16 @@
               </svg>
             </div>
             <input v-model="searchQuery" type="text"
-              :placeholder="activeTab === 'loans' ? 'Search loans...' : 'Search transactions...'"
+              :placeholder="activeTab === 'loans' ? t('searchLoans') : t('searchTransactions')"
               class="w-full pl-10 pr-4 py-2 border border-gray-300 dark:border-gray-600 rounded-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-200" />
           </div>
           <div class="flex items-center gap-4">
             <div v-if="activeTab === 'loans'" class="relative">
               <select v-model="selectedLoanType"
                 class="appearance-none bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-sm px-4 py-2 pr-8 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 dark:text-gray-200">
-                <option value="">All Loan Types</option>
-                <option value="Personal">Personal</option>
-                <option value="Business">Business</option>
+                <option value="">{{ t('allLoanTypes') }}</option>
+                <option value="Personal">{{ t('personal') }}</option>
+                <option value="Business">{{ t('business') }}</option>
               </select>
               <div class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
                 <svg class="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -100,7 +100,7 @@
             <div v-if="activeTab === 'loans'" class="relative">
               <select v-model="selectedLoanStatus"
                 class="appearance-none bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-sm px-4 py-2 pr-8 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 dark:text-gray-200">
-                <option value="">All Statuses</option>
+                <option value="">{{ t('allStatuses') }}</option>
                 <option value="Paid">Paid</option>
                 <option value="Late">Late</option>
                 <option value="Default">Default</option>
@@ -137,28 +137,28 @@
             <tr>
               <th
                 class="px-4 py-3 text-left text-xs font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider border-b border-gray-200 dark:border-gray-700">
-                No</th>
+                {{ t('number') }}</th>
               <th
                 class="px-4 py-3 text-left text-xs font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider border-b border-gray-200 dark:border-gray-700">
-                Customer</th>
+                {{ t('customer') }}</th>
               <th
                 class="px-4 py-3 text-left text-xs font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider border-b border-gray-200 dark:border-gray-700">
-                Loan Type</th>
+                {{ t('loanType') }}</th>
               <th
                 class="px-4 py-3 text-left text-xs font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider border-b border-gray-200 dark:border-gray-700">
-                Amount</th>
+                {{ t('amount') }}</th>
               <th
                 class="px-4 py-3 text-left text-xs font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider border-b border-gray-200 dark:border-gray-700">
-                Interest Rate</th>
+                {{ t('interestRate') }}</th>
               <th
                 class="px-4 py-3 text-left text-xs font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider border-b border-gray-200 dark:border-gray-700">
-                Status</th>
+                {{ t('status') }}</th>
               <th
                 class="px-4 py-3 text-left text-xs font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider border-b border-gray-200 dark:border-gray-700">
-                Approval Date</th>
+                {{ t('approvalDate') }}</th>
               <th
                 class="px-4 py-3 text-left text-xs font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider border-b border-gray-200 dark:border-gray-700">
-                Due Date</th>
+                {{ t('dueDate') }}</th>
             </tr>
           </thead>
           <tbody class="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">

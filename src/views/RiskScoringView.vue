@@ -3,19 +3,19 @@
     <!-- Summary Cards -->
     <div class="grid grid-cols-1 md:grid-cols-4 gap-2 mb-2">
       <!-- Total Customers Card -->
-      <BankingCard title="Total Customers" :value="totalCustomers" format="number" icon-bg-class="bg-blue-100"
+      <BankingCard :title="t('totalCustomers')" :value="totalCustomers" format="number" icon-bg-class="bg-blue-100"
         :icon="customerIcon" />
 
       <!-- Low Risk Card -->
-      <BankingCard title="Low Risk" :value="riskDistribution.Low" format="number" icon-bg-class="bg-green-100"
+      <BankingCard :title="t('lowRisk')" :value="riskDistribution.Low" format="number" icon-bg-class="bg-green-100"
         :icon="lowRiskIcon" />
 
       <!-- Medium Risk Card -->
-      <BankingCard title="Medium Risk" :value="riskDistribution.Medium" format="number" icon-bg-class="bg-yellow-100"
+      <BankingCard :title="t('mediumRisk')" :value="riskDistribution.Medium" format="number" icon-bg-class="bg-yellow-100"
         :icon="mediumRiskIcon" />
 
       <!-- High Risk Card -->
-      <BankingCard title="High Risk" :value="riskDistribution.High" format="number" icon-bg-class="bg-red-100"
+      <BankingCard :title="t('highRisk')" :value="riskDistribution.High" format="number" icon-bg-class="bg-red-100"
         :icon="highRiskIcon" />
     </div>
 
@@ -23,7 +23,7 @@
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-2 mb-2">
       <!-- Risk Distribution Bar Chart -->
       <div class="lg:col-span-2 bg-white dark:bg-gray-800 rounded-sm shadow p-3 transition-colors duration-300">
-        <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-2">Risk Distribution</h3>
+        <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-2">{{ t('riskDistribution') }}</h3>
         <div class="h-[300px]">
           <Bar :data="riskDistributionChartData" :options="riskDistributionChartOptions" />
         </div>
@@ -31,11 +31,11 @@
 
       <!-- Risk Score Summary -->
       <div class="bg-white dark:bg-gray-800 rounded-sm shadow p-3 transition-colors duration-300">
-        <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-2">Risk Score Summary</h3>
+        <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-2">{{ t('riskScoreSummary') }}</h3>
         <div class="space-y-3">
           <div>
             <div class="flex justify-between text-sm mb-1">
-              <span class="text-gray-600 dark:text-gray-400">Average Score</span>
+              <span class="text-gray-600 dark:text-gray-400">{{ t('averageScore') }}</span>
               <span class="font-semibold text-gray-800 dark:text-gray-200">{{ averageRiskScore }}</span>
             </div>
             <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
@@ -43,18 +43,18 @@
             </div>
           </div>
           <div class="pt-3 border-t border-gray-200 dark:border-gray-700">
-            <p class="text-xs text-gray-500 dark:text-gray-400 mb-2">Risk Levels</p>
+            <p class="text-xs text-gray-500 dark:text-gray-400 mb-2">{{ t('riskLevels') }}</p>
             <div class="space-y-2">
               <div class="flex items-center justify-between">
-                <span class="text-sm text-gray-700 dark:text-gray-300">Low (0-39)</span>
+                <span class="text-sm text-gray-700 dark:text-gray-300">{{ t('lowRisk') }} (0-39)</span>
                 <RiskBadge risk-level="Low" />
               </div>
               <div class="flex items-center justify-between">
-                <span class="text-sm text-gray-700 dark:text-gray-300">Medium (40-69)</span>
+                <span class="text-sm text-gray-700 dark:text-gray-300">{{ t('mediumRisk') }} (40-69)</span>
                 <RiskBadge risk-level="Medium" />
               </div>
               <div class="flex items-center justify-between">
-                <span class="text-sm text-gray-700 dark:text-gray-300">High (70-100)</span>
+                <span class="text-sm text-gray-700 dark:text-gray-300">{{ t('highRisk') }} (70-100)</span>
                 <RiskBadge risk-level="High" />
               </div>
             </div>
@@ -73,17 +73,17 @@
                 d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
             </svg>
           </div>
-          <input v-model="searchQuery" type="text" placeholder="Search customers..."
+          <input v-model="searchQuery" type="text" :placeholder="t('searchCustomers')"
             class="w-full pl-10 pr-4 py-2 border border-gray-300 dark:border-gray-600 rounded-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-200" />
         </div>
         <div class="flex items-center gap-4">
           <div class="relative">
             <select v-model="selectedRiskLevel"
               class="appearance-none bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-sm px-4 py-2 pr-8 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 dark:text-gray-200">
-              <option value="">All Risk Levels</option>
-              <option value="Low">Low Risk</option>
-              <option value="Medium">Medium Risk</option>
-              <option value="High">High Risk</option>
+              <option value="">{{ t('allRiskLevels') }}</option>
+              <option value="Low">{{ t('lowRisk') }}</option>
+              <option value="Medium">{{ t('mediumRisk') }}</option>
+              <option value="High">{{ t('highRisk') }}</option>
             </select>
             <div class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
               <svg class="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -98,7 +98,7 @@
     <!-- High Risk Customers Table -->
     <div class="bg-white dark:bg-gray-800 rounded-sm shadow transition-colors duration-300">
       <div class="px-4 py-3 border-b border-gray-200 dark:border-gray-700">
-        <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200">Customer Risk Scores</h3>
+        <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200">{{ t('customerRiskScores') }}</h3>
       </div>
       <div class="max-h-[500px] overflow-y-auto">
         <table class="w-full">
@@ -106,28 +106,28 @@
             <tr>
               <th
                 class="px-4 py-3 text-left text-xs font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider border-b border-gray-200 dark:border-gray-700">
-                No</th>
+                {{ t('number') }}</th>
               <th
                 class="px-4 py-3 text-left text-xs font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider border-b border-gray-200 dark:border-gray-700">
-                Customer</th>
+                {{ t('customer') }}</th>
               <th
                 class="px-4 py-3 text-left text-xs font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider border-b border-gray-200 dark:border-gray-700">
-                Age</th>
+                {{ t('age') }}</th>
               <th
                 class="px-4 py-3 text-left text-xs font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider border-b border-gray-200 dark:border-gray-700">
-                Income</th>
+                {{ t('income') }}</th>
               <th
                 class="px-4 py-3 text-left text-xs font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider border-b border-gray-200 dark:border-gray-700">
-                Risk Score</th>
+                {{ t('riskScore') }}</th>
               <th
                 class="px-4 py-3 text-left text-xs font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider border-b border-gray-200 dark:border-gray-700">
-                Risk Level</th>
+                {{ t('riskLevel') }}</th>
               <th
                 class="px-4 py-3 text-left text-xs font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider border-b border-gray-200 dark:border-gray-700">
-                Default Prediction</th>
+                {{ t('defaultPrediction') }}</th>
               <th
                 class="px-4 py-3 text-left text-xs font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider border-b border-gray-200 dark:border-gray-700">
-                Actions</th>
+                {{ t('actions') }}</th>
             </tr>
           </thead>
           <tbody class="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
@@ -154,13 +154,13 @@
                   'px-2 py-1 text-xs font-medium rounded-sm',
                   item.riskLevel === 'High' ? 'bg-red-100 dark:bg-red-900/30 text-red-800 dark:text-red-400' : 'bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-400'
                 ]">
-                  {{ item.riskLevel === 'High' ? 'High Risk' : 'Low Risk' }}
+                  {{ item.riskLevel === 'High' ? t('highRisk') : t('lowRisk') }}
                 </span>
               </td>
               <td class="px-4 py-3 whitespace-nowrap text-sm font-medium">
                 <button @click="viewRiskDetails(item)"
                   class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300">
-                  View Details
+                  {{ t('viewDetails') }}
                 </button>
               </td>
             </tr>
@@ -176,7 +176,7 @@
           class="absolute right-0 top-0 h-full w-full max-w-md bg-white dark:bg-gray-800 shadow-xl overflow-y-auto transition-colors duration-300">
           <div
             class="sticky top-0 bg-white dark:bg-gray-800 text-black dark:text-gray-200 px-6 py-5 flex items-center justify-between z-10 border-b border-gray-200 dark:border-gray-700">
-            <h2 class="text-xl font-bold">Risk Score Details</h2>
+            <h2 class="text-xl font-bold">{{ t('riskScoreDetails') }}</h2>
             <button @click="closeDetailsDrawer"
               class="text-black dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-sm p-2 transition-colors">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
@@ -199,7 +199,7 @@
             </div>
 
             <div>
-              <h4 class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Risk Factors</h4>
+              <h4 class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">{{ t('riskFactors') }}</h4>
               <ul class="space-y-2">
                 <li v-for="(factor, index) in selectedRiskData.factors" :key="index"
                   class="text-sm text-gray-600 dark:text-gray-400 flex items-start gap-2">
@@ -214,7 +214,7 @@
 
             <div class="pt-4 border-t border-gray-200 dark:border-gray-700">
               <p class="text-xs text-gray-500 dark:text-gray-400">
-                Last Updated: {{ new Date(selectedRiskData.lastUpdated).toLocaleDateString() }}
+                {{ t('lastUpdated') }}: {{ new Date(selectedRiskData.lastUpdated).toLocaleDateString() }}
               </p>
             </div>
           </div>
@@ -324,10 +324,10 @@ const averageRiskScore = computed(() => {
 
 // Risk distribution chart data
 const riskDistributionChartData = computed(() => ({
-  labels: ['Low Risk', 'Medium Risk', 'High Risk'],
+  labels: [t('lowRisk'), t('mediumRisk'), t('highRisk')],
   datasets: [
     {
-      label: 'Number of Customers',
+      label: t('totalCustomers'),
       data: [
         riskDistribution.value.Low,
         riskDistribution.value.Medium,

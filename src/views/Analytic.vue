@@ -3,19 +3,19 @@
     <!-- Summary Cards -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 mb-2">
       <!-- Loan-to-Deposit Ratio Card -->
-      <BankingCard title="Loan-to-Deposit Ratio" :value="loanToDepositRatio" format="percentage"
+      <BankingCard :title="t('loanToDepositRatio')" :value="loanToDepositRatio" format="percentage"
         icon-bg-class="bg-blue-100" :icon="ratioIcon" />
 
       <!-- Average CLV Card -->
-      <BankingCard title="Average CLV" :value="averageCLV" format="currency" icon-bg-class="bg-green-100"
+      <BankingCard :title="t('averageCLV')" :value="averageCLV" format="currency" icon-bg-class="bg-green-100"
         :icon="clvIcon" />
 
       <!-- Top Branch Profit Card -->
-      <BankingCard title="Top Branch Profit" :value="topBranchProfit" format="currency" icon-bg-class="bg-purple-100"
+      <BankingCard :title="t('topBranchProfit')" :value="topBranchProfit" format="currency" icon-bg-class="bg-purple-100"
         :icon="profitIcon" />
 
       <!-- Total Revenue Card -->
-      <BankingCard title="Total Revenue" :value="totalRevenue" format="currency" icon-bg-class="bg-orange-100"
+      <BankingCard :title="t('totalRevenue')" :value="totalRevenue" format="currency" icon-bg-class="bg-orange-100"
         :icon="revenueIcon" />
     </div>
 
